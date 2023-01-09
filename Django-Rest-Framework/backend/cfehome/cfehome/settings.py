@@ -31,16 +31,24 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'api',
-    'products',
-    'rest_framework',
-    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third party api services
+    'algoliasearch_django',
+
+    # third party packages
+    'rest_framework',
+    'rest_framework.authtoken',
+
+    # internal apps
+    'api',
+    'articles',
+    'products',
+    'search',
 ]
 
 MIDDLEWARE = [
@@ -133,5 +141,13 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticatedOrReadOnly"
-    ]
+    ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "PAGE_SIZE": 10
+}
+
+ALGOLIA = {
+    'APPLICATION_ID': 'TVPYFL77VI',
+    'API_KEY': '14defb7705253926c96094bb99f8b787',
+    'INDEX_PREFIX': 'cfe',
 }
