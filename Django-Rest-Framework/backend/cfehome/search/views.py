@@ -1,7 +1,6 @@
 from rest_framework import generics
 from rest_framework.response import Response
 
-
 from products.models import Product
 from products.serializers import ProductSerializer
 
@@ -16,11 +15,9 @@ class SearchListView(generics.GenericAPIView):
         public = str(request.GET.get('public')) != "0"
         tag = request.GET.get('tag') or None
         if not query:
-            Response('', status=400)
+            return Response('', status=400)
         results = client.perform_search(query, tags=tag, user=user, public=public)
         return Response(results)
-
-
 
 class SearchListOldView(generics.ListAPIView):
     queryset = Product.objects.all()
