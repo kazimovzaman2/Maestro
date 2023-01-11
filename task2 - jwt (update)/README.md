@@ -4,10 +4,9 @@ Burda iki app yaratdim:
 
   burda dj_rest_auth kitabxanasindan istifade etdim. Hazir endpoint'lərdən istifadə etmək olur. 
   
-   auth/registration qeydiyyat üçün endpointdir.
-   
-   auth/password/change/ şifrəni dəyişmək üçün endpointdir.
-   
+    auth/registration
+    
+    auth/password/change/
    
    
    
